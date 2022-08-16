@@ -29,6 +29,7 @@ services:
       - ./api:/app
     environment:
       APP_DEBUG: 1
+      APP_ENV: dev
   api-php-cli:
     build:
       context: docker/development/api/php-cli
@@ -36,3 +37,4 @@ services:
       - ./api:/app
     environment:
       APP_DEBUG: 1
+      APP_ENV: dev
