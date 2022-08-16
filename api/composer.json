@@ -1,0 +1,25 @@
+{
+  "name": "root/app",
+  "autoload": {
+    "psr-4": {
+      "Root\\App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Pavel Volkov",
+      "email": "lambdahhh@gmail.com"
+    }
+  ],
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^7.4",
+    "slim/psr7": "^1.5",
+    "slim/slim": "4.0.*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  }
+}
