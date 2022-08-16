@@ -1,24 +1,29 @@
 version: "3"
 
 services:
-  nginx:
+  gateway:
     build:
-      context: docker/frontend/development/nginx
+      context: docker/development/gateway/nginx
     ports:
-      - "7770:80"
+      - "7770:7770"
+      - "7771:7771"
+    depends_on:
+      - frontend
+      - api
+  frontend:
+    build:
+      context: docker/development/frontend/nginx
     volumes:
       - ./frontend:/app
   api:
     build:
-      context: docker/api/development/nginx
-    ports:
-      - "7771:80"
+      context: docker/development/api/nginx
     volumes:
       - ./api:/app
     depends_on:
       - api-php-fpm
   api-php-fpm:
     build:
-      context: docker/api/development/php-fpm
+      context: docker/development/api/php-fpm
     volumes:
       - ./api:/app
