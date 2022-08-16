@@ -1,30 +1,18 @@
 <?php
 
-use DI\Container;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Slim\Factory\AppFactory;
 
 http_response_code(500);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$builder = new DI\ContainerBuilder();
-$builder->addDefinitions([
-    'config' => [
-        'debug' => (bool) getenv('APP_DEBUG')
-    ]
-]);
-
-$container = $builder->build();
+$container = require __DIR__ . '/../config/container.php';
 
 $app = AppFactory::create(null, $container);
 
-$app->addErrorMiddleware($container->get('config')['debug'], true, true);
 
-$app->get('/', function (Request $request, Response $response, $args) {
-    $response->getBody()->write("{}");
-    return $response->withHeader('Content-Type', 'application/json');
-});
+(require __DIR__ . './../config/middleware.php')($app, $container);
+(require __DIR__ . '/../config/routes.php')($app);
 
 $app->run();
