@@ -30,6 +30,7 @@ services:
     environment:
       APP_DEBUG: 1
       APP_ENV: dev
+      PHP_IDE_CONFIG: "serverName=auction"
   api-php-cli:
     build:
       context: docker/development/api/php-cli

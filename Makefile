@@ -14,3 +14,7 @@ api-composer-install:
 	docker-compose run --rm api-php-cli composer install
 ps:
 	docker-compose ps
+sh:
+	docker-compose exec api-php-fpm sh
+nx:
+	docker-compose exec frontend sh
