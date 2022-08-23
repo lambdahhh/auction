@@ -1,0 +1,10 @@
+path: ./
+jobs: 10
+cache: var/phplint.cache
+extensions:
+  - php
+exclude:
+  - vendor
+  - var
+warning: false
+memory_limit: -1
