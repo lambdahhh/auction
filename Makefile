@@ -2,6 +2,7 @@ init: down pull build up
 restart: down up
 api-init: api-composer-install
 lint: api-lint
+test: api-test
 
 up:
 	docker-compose up -d --remove-orphans
@@ -23,5 +24,5 @@ api-lint:
 	docker-compose run --rm api-php-cli composer lint
 psalm:
 	docker-compose run --rm api-php-cli composer psalm
-test:
+api-test:
 	docker-compose run --rm api-php-cli composer test
