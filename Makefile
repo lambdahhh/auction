@@ -23,3 +23,5 @@ api-lint:
 	docker-compose run --rm api-php-cli composer lint
 psalm:
 	docker-compose run --rm api-php-cli composer psalm
+test:
+	docker-compose run --rm api-php-cli composer test

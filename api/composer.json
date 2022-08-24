@@ -39,6 +39,7 @@
     "app": "php bin/app.php --ansi",
     "cs-check": "phpcs",
     "cs-fix": "phpcbf",
-    "psalm": "psalm"
+    "psalm": "psalm",
+    "test": "phpunit --colors=always"
   }
 }

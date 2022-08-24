@@ -4,7 +4,7 @@
          bootstrap="vendor/autoload.php"
          cacheResultFile="var/test-results"
          executionOrder="depends,defects"
-         forceCoversAnnotation="true"
+         forceCoversAnnotation="false"
          beStrictAboutCoversAnnotation="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTodoAnnotatedTests="true"
@@ -18,12 +18,12 @@
         </testsuite>
     </testsuites>
 
-    <coverage cacheDirectory="var/code-coverage"
-              processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">src</directory>
-        </include>
-    </coverage>
+<!--    <coverage cacheDirectory="var/code-coverage"-->
+<!--              processUncoveredFiles="true">-->
+<!--        <include>-->
+<!--            <directory suffix=".php">src</directory>-->
+<!--        </include>-->
+<!--    </coverage>-->
 
   <php>
     <env name="APP_ENV" value="test" force="true" />
