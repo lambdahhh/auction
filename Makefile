@@ -3,6 +3,9 @@ restart: down up
 api-init: api-composer-install
 lint: api-lint
 test: api-test
+test-unit: api-test-unit
+test-functional: api-test-functional
+test-coverage: api-test-unit-coverage
 
 up:
 	docker-compose up -d --remove-orphans
@@ -26,3 +29,11 @@ psalm:
 	docker-compose run --rm api-php-cli composer psalm
 api-test:
 	docker-compose run --rm api-php-cli composer test
+api-test-unit:
+	docker-compose run --rm api-php-cli composer test -- --testsuite=unit
+api-test-functional:
+	docker-compose run --rm api-php-cli composer test -- --testsuite=functional
+api-test-unit-coverage:
+	docker-compose run --rm api-php-cli composer test-unit-coverage
+api-clear:
+	docker run --rm -v ${PWD}/api:/app -w /app alpine 'rm -rf var/*'

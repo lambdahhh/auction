@@ -2,6 +2,9 @@
 
 namespace Test\Functional;
 
+/**
+ * @coversNothing
+ */
 class HomeTest extends WebTestCase
 {
     public function testSuccess(): void
