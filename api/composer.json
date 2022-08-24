@@ -5,6 +5,11 @@
       "App\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "tests/"
+    }
+  },
   "authors": [
     {
       "name": "Pavel Volkov",
@@ -26,6 +31,7 @@
   },
   "require-dev": {
     "overtrue/phplint": "^3.2",
+    "phpunit/phpunit": "^9.5",
     "roave/security-advisories": "dev-master"
   },
   "scripts": {
