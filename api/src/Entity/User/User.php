@@ -56,6 +56,17 @@ class User
         $this->joinConfirmToken = null;
     }
 
+    public function requestPasswordReset(
+        Token $token,
+        \DateTimeImmutable $date
+    ): void
+    {
+        if (!$this->isActive()) {
+            throw new \DomainException('User is not active');
+        }
+        $this->passwordResetToken = $token;
+    }
+
     public function getDate(): \DateTimeImmutable
     {
         return $this->date;
